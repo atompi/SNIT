@@ -1,3 +1,11 @@
 data/
 logs/
 conf/ssl.d/certs/
+conf/conf.d/*
+docker/go-httpbin/go-httpbin
+
+!conf/conf.d/default.conf
+!conf/conf.d/bin.conf
+!conf/conf.d/status.conf
+!conf/conf.d/map.conf
+!conf/conf.d/mapa.conf
