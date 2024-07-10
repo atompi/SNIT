@@ -3,7 +3,7 @@ name: nginx
 
 services:
   nginx:
-    image: nginx:1.24.0
+    image: nginx:1.26.1
     restart: always
     ports:
       - "80:80"
