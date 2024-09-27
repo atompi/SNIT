@@ -16,7 +16,7 @@ services:
       - ./logs:/var/log/nginx
       - ./data:/data
   go-httpbin:
-    image: atompi/go-httpbin:v2.12.0
+    image: atompi/go-httpbin:v2.15.0
     restart: always
     env_file: ./go-httpbin.env
   webhook-tester:
