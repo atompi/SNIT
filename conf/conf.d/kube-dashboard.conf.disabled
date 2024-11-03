@@ -1,0 +1,43 @@
+server {
+    listen 80;
+    server_name kube-dashboard.atompi.cc;
+
+    access_log /var/log/nginx/kube-dashboard_access.log main;
+    error_log /var/log/nginx/kube-dashboard_error.log;
+
+    if ($http_user_agent ~ "MSIE" ) {
+        return 303 https://browser-update.org/update.html;
+    }
+
+    location / {
+        proxy_pass http://kube32080;
+        include core.d/proxy.conf;
+    }
+
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+}
+
+server {
+    include ssl.d/atompi.cc.conf;
+    server_name kube-dashboard.atompi.cc;
+
+    access_log /var/log/nginx/kube-dashboard_access.log main;
+    error_log /var/log/nginx/kube-dashboard_error.log;
+
+    if ($http_user_agent ~ "MSIE" ) {
+        return 303 https://browser-update.org/update.html;
+    }
+
+    location / {
+        proxy_pass https://kube32443;
+        include core.d/proxy.conf;
+    }
+
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+}
