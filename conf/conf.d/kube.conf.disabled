@@ -9,7 +9,7 @@ upstream kube32443 {
 
 server {
     listen 80;
-    server_name kube.atompi.cc mon.atompi.cc kube-dashboard.atompi.cc kube-wt.atompi.cc;
+    server_name kube.atompi.cc mon.atompi.cc kube-dashboard.atompi.cc kube-wt.atompi.cc kube-prom.atompi.cc;
 
     access_log /var/log/nginx/kube_access.log main;
     error_log /var/log/nginx/kube_error.log;
@@ -31,7 +31,7 @@ server {
 
 server {
     include ssl.d/atompi.cc.conf;
-    server_name kube.atompi.cc mon.atompi.cc kube-dashboard.atompi.cc kube-wt.atompi.cc;
+    server_name kube.atompi.cc mon.atompi.cc kube-dashboard.atompi.cc kube-wt.atompi.cc kube-prom.atompi.cc;
 
     access_log /var/log/nginx/kube_access.log main;
     error_log /var/log/nginx/kube_error.log;
