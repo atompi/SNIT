@@ -5,6 +5,7 @@ conf/conf.d/*
 docker/go-httpbin/go-httpbin
 
 !conf/conf.d/default.conf
+!conf/conf.d/tools.conf
 !conf/conf.d/bin.conf.disabled
 !conf/conf.d/wt.conf.disabled
 !conf/conf.d/kube.conf.disabled
