@@ -25,6 +25,10 @@ server {
     }
 
     location / {
+        #limit_req zone=limitreq burst=5 nodelay;
+        limit_conn limitconn 10;
+        #limit_rate_after 1m;
+        #limit_rate 512k;
         proxy_pass http://go-httpbin;
         include core.d/proxy.conf;
     }
