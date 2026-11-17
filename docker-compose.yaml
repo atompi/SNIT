@@ -3,7 +3,7 @@ name: nginx
 
 services:
   nginx:
-    image: nginx:1.26.2
+    image: nginx:1.30.6
     restart: always
     ports:
       - "80:80"
@@ -17,13 +17,13 @@ services:
       - ./logs:/var/log/nginx
       - ./data:/data
   go-httpbin:
-    image: atompi/go-httpbin:v2.15.0
+    image: atompi/go-httpbin:v2.26.0
     restart: always
     env_file: ./go-httpbin.env
   webhook-tester:
-    image: tarampampam/webhook-tester:1.1.0
+    image: tarampampam/webhook-tester:2.3.0
     restart: unless-stopped
-    command: serve --port 8080 --create-session 00000000-0000-0000-0000-000000000000
+    command: serve --port 8080 --auto-create-sessions
 
 networks:
   default:
